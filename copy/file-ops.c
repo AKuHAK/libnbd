@@ -16,6 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
+#define fallocate(fd, mode, offset,...) ftruncate(fd, __VA_ARGS__)
+
 #include <config.h>
 
 #include <stdio.h>
@@ -39,6 +41,7 @@
 #include "isaligned.h"
 #include "ispowerof2.h"
 #include "rounding.h"
+#include <fcntl.h>
 
 #include "nbdcopy.h"
 

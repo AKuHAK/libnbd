@@ -39,9 +39,9 @@
 #define FUSE_USE_VERSION 26
 
 #include <fuse.h>
-#ifdef HAVE_FUSE_LOWLEVEL_H
+// #ifdef HAVE_FUSE_LOWLEVEL_H
 #include <fuse_lowlevel.h>
-#endif
+// #endif
 
 #include <libnbd.h>
 
@@ -551,9 +551,9 @@ nbdfuse_getattr (const char *path, struct stat *statbuf)
    * this file is not usually compiled on non-Linux systems (perhaps
    * on OpenBSD?).  XXX
    */
-  statbuf->st_atim = start_t;
-  statbuf->st_mtim = start_t;
-  statbuf->st_ctim = start_t;
+  statbuf->st_atime = start_t.tv_sec;
+  statbuf->st_mtime = start_t.tv_sec;
+  statbuf->st_ctime = start_t.tv_sec;
   statbuf->st_uid = geteuid ();
   statbuf->st_gid = getegid ();
 

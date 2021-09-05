@@ -78,8 +78,7 @@ libnbd_la_LIBADD = \
 	$(NULL)
 libnbd_la_LDFLAGS = \
 	$(PTHREAD_LIBS) \
-	-Wl,--version-script=$(srcdir)/libnbd.syms \
-	-version-info 0:0:0 \
+	-Wl,	-version-info 0:0:0 \
 	$(NULL)
 
 # pkg-config / pkgconf
